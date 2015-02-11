@@ -25,7 +25,7 @@ app.controller("multController", function($scope, $attrs){
 	}
 
 	$scope.clearActiveFactors = function(){
-		activeFactorA = activeFactorB =
+		activeFactorA = activeFactorB = null;
 	}
 
 })
