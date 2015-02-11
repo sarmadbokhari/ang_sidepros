@@ -11,9 +11,9 @@
 		<div ng-if="content">{{ content }}</div>
 		<div ng-if="!content">...</div>
 	</div>
-	
+
 	<div ng-controller="MultCtrl" initial-amount="10">
-		<input type="number" ng-model="numberLimit" placeholder="Enter a number">
+		<input type="text" ng-model="numberLimit" placeholder="Enter a number">
 		<table>
 			<tr ng-repeat="numberA in numbers">
 				<td ng-repeat="numberB in numbers"

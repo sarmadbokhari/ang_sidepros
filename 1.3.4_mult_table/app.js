@@ -41,5 +41,6 @@ app.controller("MultCtrl", function($scope, $attrs, $rootScope){
 app.controller("DisplayCtrl", function($scope){
 	$scope.$on("displayData", function(event, data){
 		$scope.content = data;
+		console.log(data);
 	})
 });
