@@ -6,18 +6,35 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body ng-controller="multController" initial-amount="10">
-	<input type="number" ng-model="numberLimit" placeholder="Enter a number">
-	<table>
-		<tr ng-repeat="numberA in numbers">
-			<td ng-repeat="numberB in numbers"
-				ng-mouseover="setActiveFactors(numberA, numberB)"
-				ng-mouseleave="clearActiveFactors()"
-				ng-class="{hover: matchesFactors(numberA, numberB)}">
-				{{ numberA * numberB }}
-			</td>
-		</tr>
-	</table>
+<body>
+	<div ng-controller="DisplayCtrl">
+		<div ng-if="content">{{ content }}</div>
+		<div ng-if="!content">...</div>
+	</div>
+	
+	<div ng-controller="MultCtrl" initial-amount="10">
+		<input type="number" ng-model="numberLimit" placeholder="Enter a number">
+		<table>
+			<tr ng-repeat="numberA in numbers">
+				<td ng-repeat="numberB in numbers"
+					ng-click="setActiveNumber(compute(numberA,numberB))"
+					ng-mouseover="setActiveFactors(numberA, numberB)"
+					ng-mouseleave="clearActiveFactors()"
+					ng-class="{hover: matchesFactors(numberA, numberB)}">
+					{{ compute(numberA,numberB) }}
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div ng-controller="DisplayCtrl">
+	    <div ng-if="content">
+	        The value you have selected to display is: {{ content }}
+	    </div>
+	    <div ng-if="!content">
+	        You have not selected a value to display
+	    </div>
+	</div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
     <script src="app.js"></script>
