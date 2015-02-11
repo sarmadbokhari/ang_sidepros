@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="ngMadLibs">
+    <div class="form border" ng-controller="madController">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="smiley.png" height="116px">
+            </div>
+            <div class="col-md-9">
+                <img src="ngMadLibs.png">
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-warning" ng-click="changeGender()">Change Gender</button>
+            <h1>Provide the following words:</h1>
+            <div class="col-md-4" class="text-center">
+                <input type="text" class="text-center" placeholder="Male Name" ng-model="madlibs.male_name" ng-show="gender === 'male'">
+                <input type="text" class="text-center" placeholder="Female Name" ng-model="madlibs.female_name" ng-show="gender === 'female'">
+                <input type="text" class="text-center" placeholder="Job Title" ng-model="madlibs.job_title">
+                <input type="text" class="text-center" placeholder="Tedious Task" ng-model="madlibs.tedious_task">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="text-center" placeholder="Dirty Task" ng-model="madlibs.dirty_task">
+                <input type="text" class="text-center" placeholder="Celebrity" ng-model="madlibs.celebrity">
+                <input type="text" class="text-center" placeholder="Useless Skill" ng-model="madlibs.useless_skill">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="text-center" placeholder="Obnoxious Celebrity" ng-model="madlibs.obnoxious_celebrity">
+                <input type="text" class="text-center" placeholder="Huge Number" ng-model="madlibs.huge_number">
+                <input type="text" class="text-center" placeholder="Adjective" ng-model="madlibs.adjective">
+            </div>
+        </div>
+        <div class="row">
+            <h2><span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> was a <span class="text-primary">{{ madlibs.job_title }}</span> who loved technology. Although {{ gender === "male" ? "he" : "she" }} loved parts of {{ gender === "male" ? "him" : "her" }} job, {{ gender === "male" ? "he" : "she" }} absolutely hated <span class="text-primary">{{ madlibs.tedious_task }}</span> and <span class="text-primary">{{ madlibs.dirty_task }}</span>. So, <span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> met with {{ gender === "male" ? "him" : "her" }} life mentor <span class="text-primary">{{ madlibs.celebrity }}</span> who told {{ gender === "male" ? "him" : "her" }} to learn how to <span class="text-primary">{{ madlibs.useless_skill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="text-primary">{{ madlibs.useless_skill }}</span> so {{ gender === "male" ? "he" : "she" }} studied programming instead.</h2>
+
+            <h2>What a great decision! With {{ gender === "male" ? "him" : "her" }} new skills, <span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> built a(n) <span class="text-primary">{{ madlibs.adjective }}</span> robot named <span class="text-primary">{{ madlibs.obnoxious_celebrity }}</span> that not only loved <span class="text-primary">{{ madlibs.dirty_task }}</span> but did it <span class="text-primary">{{ madlibs.huge_number }}</span> faster.</h2>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
