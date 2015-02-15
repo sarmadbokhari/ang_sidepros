@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="ngMadLibs">
+    <div class="form border" ng-controller="madController">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="smiley.png" height="116px">
+            </div>
+            <div class="col-md-9">
+                <img src="ngMadLibs.png">
+            </div>
+        </div>
+        <form name="madForm" ng-hide="madForm.$submitted">
+            <div class="row well">
+                <h1>Provide the following words:</h1>
+                <div class="col-md-4" class="text-center">
+                    <input type="text" name="maleName" class="text-center" placeholder="Male Name" ng-model="madlibs.male_name" ng-show="gender === 'male'">
+                    <input type="text" name="femaleName" class="text-center" placeholder="Female Name" ng-model="madlibs.female_name" ng-show="gender === 'female'">
+                    <input type="text" name="jobTitle" class="text-center" placeholder="Job Title" ng-model="madlibs.job_title" required>
+                    <input type="text" name="tediousTask" class="text-center" placeholder="Tedious Task" ng-model="madlibs.tedious_task" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="dirtyTask" class="text-center" placeholder="Dirty Task" ng-model="madlibs.dirty_task" required>
+                    <input type="text" name="celebrity" class="text-center" placeholder="Celebrity" ng-model="madlibs.celebrity" required>
+                    <input type="text" name="uselessSkill" class="text-center" placeholder="Useless Skill" ng-model="madlibs.useless_skill" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="obnoxiousCelebrity" class="text-center" placeholder="Obnoxious Celebrity" ng-model="madlibs.obnoxious_celebrity" required>
+                    <input type="number" name="hugeNumber" class="text-center" placeholder="Huge Number" ng-model="madlibs.huge_number" required>
+                    <input type="text" name="adjective" class="text-center" placeholder="Adjective" ng-model="madlibs.adjective" required>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary pull-right" ng-click="showMe()">Generate My MadLib</button>
+                <button type="button" class="btn btn-warning pull-right" ng-click="changeGender()">Change Gender</button>
+            </div>
+        </form>
+        <div class="row well" ng-hide="!madForm.$submitted">
+            <h2><span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> was a <span class="text-primary">{{ madlibs.job_title }}</span> who loved technology. Although {{ gender === "male" ? "he" : "she" }} loved parts of {{ gender === "male" ? "his" : "her" }} job, {{ gender === "male" ? "he" : "she" }} absolutely hated <span class="text-primary">{{ madlibs.tedious_task }}</span> and <span class="text-primary">{{ madlibs.dirty_task }}</span>. So, <span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> met with {{ gender === "male" ? "his" : "her" }} life mentor <span class="text-primary">{{ madlibs.celebrity }}</span> who told {{ gender === "male" ? "him" : "her" }} to learn how to <span class="text-primary">{{ madlibs.useless_skill }}</span> with Google. Google didn't offer a course on <span class="text-primary">{{ madlibs.useless_skill }}</span> so {{ gender === "male" ? "he" : "she" }} studied programming instead.</h2>
+
+            <h2>What a great decision! With {{ gender === "male" ? "him" : "her" }} new skills, <span class="text-primary">{{ gender === "male" ? madlibs.male_name : madlibs.female_name }}</span> built a(n) <span class="text-primary">{{ madlibs.adjective }}</span> robot named <span class="text-primary">{{ madlibs.obnoxious_celebrity }}</span> that not only loved <span class="text-primary">{{ madlibs.dirty_task }}</span> but did it <span class="text-primary">{{ madlibs.huge_number }}</span> faster.</h2>
+        </div>
+        <div class="row" ng-hide="!madForm.$submitted">
+            <button type="submit" class="btn btn-primary btn-danger pull-right" ng-click="resetForm()">New MadLib</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
