@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Waitstaff Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body ng-controller="waitCtrl">
+	<div class="row text-center">
+		<h1>Waitstaff Calculator</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="well">
+				<h2>Enter the Meal Details</h2>
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="mealPrice" class="col-sm-2 control-label">Meal Price</label>
+						<div class="col-sm-10">
+							<input ng-model="mealPrice" type="number" class="form-control" id="mealPrice" placeholder="Meal Price">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="taxRate" class="col-sm-2 control-label">Tax Rate</label>
+						<div class="col-sm-10">
+							<input ng-model="taxRate" type="number" class="form-control" id="taxRate" placeholder="Tax Rate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="tipRate" class="col-sm-2 control-label">Tip Percentage</label>
+						<div class="col-sm-10">
+							<input ng-model="tipRate" type="number" class="form-control" id="tipRate" placeholder="Tip Percentage">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" ng-click="addMeal()" class="btn btn-default">Submit</button>
+							<button class="btn btn-warning">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="well">
+				<h2>Customer Charges</h2>
+				<div class="form-group">
+					<p><strong>Subtotal:</strong></p>
+					<p><strong>Tip:</strong></p>
+					<p><strong>Total:</strong></p>
+
+				</div>
+			</div>
+			<div class="well">
+				<h2>My Earnings Info</h2>
+				<p><strong>Tip Total:</strong></p>
+				<p><strong>Meal Count:</strong></p>
+				<p><strong>Average Tip/Meal:</strong></p>
+			</div>
+		</div>
+	</div>
+	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
