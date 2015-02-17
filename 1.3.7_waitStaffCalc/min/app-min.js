@@ -1,1 +1,1 @@
-var app=angular.module("myApp",[]);app.controller("waitCtrl",function(a){});
+var app=angular.module("myApp",[]);app.controller("waitCtrl",function(a){a.meals={example:[10,20,30]},a.addMeal=function(){var e="customer"+(Object.keys(a.meals).length+1);a.meals[e]=[a.mealPrice,a.taxRate,a.tipRate]}});
