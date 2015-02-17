@@ -14,9 +14,24 @@ app.controller("waitCtrl", function($scope){
 		"totalTotal": null
 	};
 
+	$scope.myEarnings = {
+		"totalTips": 1,
+		"mealCount": Object.keys($scope.meals).length,
+		"averageTip": null
+	}
+
+	$scope.updateEarnings = function(){
+		$scope.myEarnings.totalTips = null;
+		$scope.myEarnings.mealCount = Object.keys($scope.meals).length;
+		for (var customer in $scope.meals){
+			$scope.myEarnings.totalTips += $scope.meals[customer][1];
+		}
+	};
+
 	$scope.addMeal = function(){
 		var customer = "customer" + (Object.keys($scope.meals).length+1);
 		$scope.meals[customer] = [$scope.thisMeal.subTotal, $scope.thisMeal.tipTotal, $scope.thisMeal.totalTotal];
+		$scope.updateEarnings();
 	};
 
 	$scope.$watch('mealPrice', function(newVal, oldVal){

@@ -51,8 +51,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="(key, value) in meals">
-							<td>{{ key }}</td>
+						<tr ng-repeat="(customer, value) in meals">
+							<td>{{ customer }}</td>
 							<td>{{ value[0] | currency }}</td>
 							<td>{{ value[1] | currency }}</td>
 							<td>{{ value[2] | currency }}</td>
@@ -73,9 +73,9 @@
 			</div>
 			<div class="well">
 				<h2>My Earnings Info</h2>
-				<p><strong>Tip Total:</strong></p>
-				<p><strong>Meal Count:</strong></p>
-				<p><strong>Average Tip/Meal:</strong></p>
+				<p><strong>Tip Total:</strong><span class="text-danger"> {{ myEarnings.totalTips | currency }}</span></p>
+				<p><strong>Meal Count:</strong><span class="text-danger"> {{ myEarnings.mealCount }}</span></p>
+				<p><strong>Average Tip/Meal:</strong><span class="text-danger"> {{ myEarnings.totalTips/myEarnings.mealCount | currency }}</span></p>
 			</div>
 		</div>
 	</div>
