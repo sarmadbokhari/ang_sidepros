@@ -34,14 +34,14 @@
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="submit" ng-click="addMeal()" class="btn btn-default">Submit</button>
-							<button class="btn btn-warning">Cancel</button>
+							<button ng-click="resetMealForm()" class="btn btn-warning">Cancel</button>
 						</div>
 					</div>
 				</form>
 			</div>
 			<div class="well">
 				<h2>Customers Today</h2>
-				<table class="table table-bordered table-striped">
+				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Customer</th>
@@ -65,10 +65,22 @@
 			<div class="well">
 				<h2>Customer Charges</h2>
 				<div class="form-group">
-					<p><strong>Subtotal:</strong><span class="text-primary"> {{ thisMeal.subTotal || 0.00 | currency }}</span></p>
-					<p><strong>Tip:</strong><span class="text-primary"> {{ thisMeal.tipTotal || 0.00 | currency }}</span></p>
-					<p><strong>Total:</strong><span class="text-primary"> {{ thisMeal.totalTotal || 0.00 | currency }}</span></p>
-
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Subtotal</th>
+								<td>{{ thisMeal.subTotal || 0.00 | currency }}</td>
+							</tr>
+							<tr>
+								<th>Tip</th>
+								<td>{{ thisMeal.tipTotal || 0.00 | currency }}</td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<td>{{ thisMeal.totalTotal || 0.00 | currency }}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<div class="well">
@@ -77,6 +89,7 @@
 				<p><strong>Meal Count:</strong><span class="text-danger"> {{ myEarnings.mealCount }}</span></p>
 				<p><strong>Average Tip/Meal:</strong><span class="text-danger"> {{ myEarnings.totalTips/myEarnings.mealCount | currency }}</span></p>
 			</div>
+			<button ng-click="resetEverything()" class="btn btn-danger pull-right">Reset Everything</button>
 		</div>
 	</div>
 	

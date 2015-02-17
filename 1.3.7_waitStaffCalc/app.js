@@ -5,8 +5,6 @@ app.controller("waitCtrl", function($scope){
 		"example": [10,1,11]
 	};
 
-	$scope.reset = {};
-
 	$scope.thisMeal = {
 		"mealPrice": null,
 		"taxRate": null,
@@ -20,7 +18,7 @@ app.controller("waitCtrl", function($scope){
 		"totalTips": 1,
 		"mealCount": Object.keys($scope.meals).length,
 		"averageTip": null
-	}
+	};
 
 	$scope.updateEarnings = function(){
 		$scope.myEarnings.totalTips = null;
@@ -34,9 +32,7 @@ app.controller("waitCtrl", function($scope){
 		var customer = "customer" + (Object.keys($scope.meals).length+1);
 		$scope.meals[customer] = [$scope.thisMeal.subTotal, $scope.thisMeal.tipTotal, $scope.thisMeal.totalTotal];
 		$scope.updateEarnings();
-
-		//reset form
-		$scope.thisMeal = angular.copy($scope.reset);
+		$scope.resetMealForm();
 	};
 
 	$scope.$watch('thisMeal.mealPrice', function(newVal, oldVal){
@@ -66,7 +62,14 @@ app.controller("waitCtrl", function($scope){
 		$scope.thisMeal.totalTotal = $scope.thisMeal.subTotal + $scope.thisMeal.tipTotal;
 	});
 
-	
-	
+	// RESET STUFF
+	$scope.reset = {};
+	$scope.resetMealForm = function(){
+		$scope.thisMeal = angular.copy($scope.reset);
+	};
+	$scope.resetEverything = function(){
+		$scope.meals = angular.copy($scope.reset);
+		$scope.myEarnings = angular.copy($scope.reset);
+	};
 
 });
