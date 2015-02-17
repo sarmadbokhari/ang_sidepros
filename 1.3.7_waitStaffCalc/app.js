@@ -5,6 +5,8 @@ app.controller("waitCtrl", function($scope){
 		"example": [10,1,11]
 	};
 
+	$scope.reset = {};
+
 	$scope.thisMeal = {
 		"mealPrice": null,
 		"taxRate": null,
@@ -32,9 +34,12 @@ app.controller("waitCtrl", function($scope){
 		var customer = "customer" + (Object.keys($scope.meals).length+1);
 		$scope.meals[customer] = [$scope.thisMeal.subTotal, $scope.thisMeal.tipTotal, $scope.thisMeal.totalTotal];
 		$scope.updateEarnings();
+
+		//reset form
+		$scope.thisMeal = angular.copy($scope.reset);
 	};
 
-	$scope.$watch('mealPrice', function(newVal, oldVal){
+	$scope.$watch('thisMeal.mealPrice', function(newVal, oldVal){
 		$scope.thisMeal.mealPrice = newVal;
 
 		// update totalTotal if form is already filled out
@@ -45,7 +50,7 @@ app.controller("waitCtrl", function($scope){
 		}
 	});
 
-	$scope.$watch('taxRate', function(newVal, oldVal){
+	$scope.$watch('thisMeal.taxRate', function(newVal, oldVal){
 		$scope.thisMeal.taxRate = newVal;
 		$scope.thisMeal.subTotal = $scope.thisMeal.mealPrice + ($scope.thisMeal.mealPrice * ($scope.thisMeal.taxRate/100));
 
@@ -55,7 +60,7 @@ app.controller("waitCtrl", function($scope){
 		}
 	});
 
-	$scope.$watch('tipRate', function(newVal, oldVal){
+	$scope.$watch('thisMeal.tipRate', function(newVal, oldVal){
 		$scope.thisMeal.tipRate = newVal;
 		$scope.thisMeal.tipTotal = $scope.thisMeal.mealPrice * ($scope.thisMeal.tipRate/100);
 		$scope.thisMeal.totalTotal = $scope.thisMeal.subTotal + $scope.thisMeal.tipTotal;
