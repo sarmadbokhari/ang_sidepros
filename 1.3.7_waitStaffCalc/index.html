@@ -44,9 +44,9 @@
 			<div class="well">
 				<h2>Customer Charges</h2>
 				<div class="form-group">
-					<p><strong>Subtotal:</strong></p>
-					<p><strong>Tip:</strong></p>
-					<p><strong>Total:</strong></p>
+					<p><strong>Subtotal:</strong><span class="text-primary"> {{ thisMeal.subTotal || 0.00 | currency }}</span></p>
+					<p><strong>Tip:</strong><span class="text-primary"> {{ thisMeal.tipTotal || 0.00 | currency }}</span></p>
+					<p><strong>Total:</strong><span class="text-primary"> {{ thisMeal.totalTotal || 0.00 | currency }}</span></p>
 
 				</div>
 			</div>
