@@ -39,6 +39,27 @@
 					</div>
 				</form>
 			</div>
+			<div class="well">
+				<h2>Customers Today</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Customer</th>
+							<th>Subtotal</th>
+							<th>Tip</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="(key, value) in meals">
+							<td>{{ key }}</td>
+							<td>{{ value[0] | currency }}</td>
+							<td>{{ value[1] | currency }}</td>
+							<td>{{ value[2] | currency }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="well">
