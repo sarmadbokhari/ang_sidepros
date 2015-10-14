@@ -1,2 +1,2 @@
-# ang_sidepros
-angular side projects
+# Thinkful Mentorship
+Teaching Frontend Web Development & AngularJS @ Thinkful
